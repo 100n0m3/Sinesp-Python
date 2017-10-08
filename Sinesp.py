@@ -1,4 +1,4 @@
-import requests,time,datetime,json,xml
+import requests,time,datetime,json,xml,sys
 from hashlib import sha1
 from hmac import new as hmac
 from xml.etree import ElementTree
