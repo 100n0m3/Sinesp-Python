@@ -5,7 +5,7 @@ from xml.etree import ElementTree
 SECRET = 'XvAmRTGhQchFwzwduKYK'
 DadosConsulta = {}
 
-def consulta(placa,usuario): 
+def consulta(placa): 
     with requests.Session() as s:
         requests.packages.urllib3.disable_warnings() 
         hed = {'User-Agent':'ksoap2-android/2.6.0+','Content-Type':'text/xml;charset=utf-8','Accept-Encoding': 'gzip','Content-Lenght':'592','Host':'sinespcidadao.sinesp.gov.br','Connection':'Keep-Alive'}
