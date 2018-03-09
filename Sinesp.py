@@ -2,7 +2,7 @@ import requests,time,datetime,json,xml,sys
 from hashlib import sha1
 from hmac import new as hmac
 from xml.etree import ElementTree
-SECRET = 'XvAmRTGhQchFwzwduKYK'
+SECRET = '#8.1.0#Mw6HqdLgQsX41xAGZgsF'
 DadosConsulta = {}
 
 def consulta(placa): 
@@ -16,8 +16,8 @@ def consulta(placa):
         plate = plate.encode('utf-8')
         hmac_key = hmac(plate_and_secret, plate, sha1)
         chave = hmac_key.hexdigest()
-        dados = ("<v:Envelope xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:d=\"http://www.w3.org/2001/XMLSchema\" xmlns:c=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:v=\"http://schemas.xmlsoap.org/soap/envelope/\"><v:Header><b>motorola Moto G Play</b><c>ANDROID</c><d>6.0.1</d><e>4.2.3</e><f>192.168.0.20</f><g>"+str(chave)+"</g><h>0.0</h><i>0.0</i><k></k><l>"+datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')+"</l><m>8797e74f0d6eb7b1ff3dc114d4aa12d3</m></v:Header><v:Body><n0:getStatus xmlns:n0=\"http://soap.ws.placa.service.sinesp.serpro.gov.br/\"><a>"+str(placa)+"</a></n0:getStatus></v:Body></v:Envelope>")
-        r = s.post('https://sinespcidadao.sinesp.gov.br/sinesp-cidadao/mobile/consultar-placa/v2',data=dados,verify=False)
+        dados = ("<v:Envelope xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:d=\"http://www.w3.org/2001/XMLSchema\" xmlns:c=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:v=\"http://schemas.xmlsoap.org/soap/envelope/\"><v:Header><b>motorola Moto G Play</b><c>ANDROID</c><d>8.1.0</d><e>4.2.3</e><f>192.168.0.20</f><g>"+str(chave)+"</g><h>0.0</h><i>0.0</i><k></k><l>"+datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')+"</l><m>8797e74f0d6eb7b1ff3dc114d4aa12d3</m></v:Header><v:Body><n0:getStatus xmlns:n0=\"http://soap.ws.placa.service.sinesp.serpro.gov.br/\"><a>"+str(placa)+"</a></n0:getStatus></v:Body></v:Envelope>")
+        r = s.post('https://sinespcidadao.sinesp.gov.br/sinesp-cidadao/mobile/consultar-placa/v3',data=dados,verify=False)
         root = ElementTree.XML(str(r.content.decode("utf-8")))
         body_tag = '{http://schemas.xmlsoap.org/soap/envelope/}Body'
         response_tag = ('{http://soap.ws.placa.service.sinesp.serpro.gov.br/}''getStatusResponse')
