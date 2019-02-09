@@ -2,7 +2,7 @@ import requests,time,datetime,json,xml,sys
 from hashlib import sha1
 from hmac import new as hmac
 from xml.etree import ElementTree
-SECRET = '#8.1.0#Mw6HqdLgQsX41xAGZgsF'
+SECRET = '#8.1.0#g8LzUadkEHs7mbRqbX5l'
 DadosConsulta = {}
 
 def consulta(placa): 
